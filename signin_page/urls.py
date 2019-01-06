@@ -1,6 +1,8 @@
 
 from . import views
 from django.conf.urls import url
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 
 urlpatterns = [
 
@@ -8,3 +10,4 @@ urlpatterns = [
     url(r'^register',views.register,name='register'),
 
 ]
+urlpatterns += staticfiles_urlpatterns()

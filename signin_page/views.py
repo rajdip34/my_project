@@ -1,9 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate ,login
+##### For Blog #########
+from .models import blog
+
 # Create your views here.
 def index(request):
-    return render(request,'signin_page/index.html')
+    #blog_n = blog.objects.all().order_by('date')
+    return render(request,'signin_page/index.html',{})
+
 
 def register(request):
     if request.method =='POST':
@@ -21,3 +26,5 @@ def register(request):
 
     context = {'form' : form}
     return render(request,'registration/register.html',context)
+
+

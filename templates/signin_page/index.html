@@ -1,0 +1,30 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Sign Up</title>
+</head>
+<body>
+        {% if user.is_authenticated %}
+        <h4>Your Name is : {{ user.username }}</h4>
+        {% else %}
+        <h2>You are Not LogIn.</h2>
+        {% endif %}
+        <h2>This is Your Blog List</h2>
+        <div class="blog">
+            {% for i_tmp in blog  %}
+            <div class="singl_blog">
+                <h2><a href="#">{{i_tmp.title}}</a></h2>
+                <p>{{i_tmp.shot}}</p>
+                <p>{{i_tmp.date}}</p>
+            </div>
+            {% endfor %}
+        </div>
+    
+</body>
+</html>
